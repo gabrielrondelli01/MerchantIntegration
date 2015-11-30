@@ -1,4 +1,4 @@
 # MerchantIntegration
 MerchantIntegration
 
-Order page for merchants for payment
+Order page for merchants
