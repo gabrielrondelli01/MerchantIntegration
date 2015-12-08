@@ -1,3 +1,57 @@
+<?php
+$konnektive = "https://api.konnektive.com/order/import/?";
+$username   = "vlad@profitedge.ro";
+$password   = "makemoney123";
+
+$userOrder  = array(
+        'username' => $username,
+        'password' => $password,
+        'emailAddress' => "Robinson@email.net",
+        'phoneNumber' => 11233399,
+        'firstName' => "Test",
+        'lastName' => 'Robinson',
+        'address1' => '4455 Hollywood Blvd',
+        'address2' => 'Apt.1120',
+        'state' => 'NY',
+        'country' => 'US',
+        'postalCode' => 00012,
+        'shipFirstName' => 'Test',
+        'shipLastName' => 'Robinson',
+        'shipAddress1'=> '4455 Hollywood Blvd',
+        'shipAddress2'=> 'Apt.1120',
+        'shipCity' => 'Rome',
+        'shipState' => 'NY',
+        'shipCountry' => 'US',
+        'shipPostalCode' => 00012,
+        'paySource' => 'CREDITCARD',
+        'cardNumber' => '0000000000000000',
+        'cardSecurityCode' => '100',
+        'cardYear' => '2016',
+        'cardMonth' => '10',
+        'campaignId'=>1,
+        'product1_id'=>1,
+        'product1_qty'=>1
+    );
+
+$params = http_build_query($userOrder, '', '&');
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  0);
+
+$response2 = curl_exec($ch);
+
+var_dump($response2);
+
+?>
+
+
+
 <div class="orderFormLCol">
     <div class="paymentFormHeader">
         <i class="fa fa-credit-card"></i> Payment Details:
